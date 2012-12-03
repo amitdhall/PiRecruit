@@ -13,8 +13,10 @@ public class Description {
 	private Set<String> keySkill;
 	private String otherDetails;
 
-	public Description(){
-
+	public Description(VacancySetDTO vacancySetDTO){
+		this.description = vacancySetDTO.getDescription();
+		this.keySkill = vacancySetDTO.getKeySkill();
+		this.otherDetails = vacancySetDTO.getOtherDetails();
 	}
 
 	public void finalize() throws Throwable {

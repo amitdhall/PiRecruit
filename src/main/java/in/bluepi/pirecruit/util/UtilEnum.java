@@ -8,7 +8,7 @@ package in.bluepi.pirecruit.util;
 public class UtilEnum {
 
 	public enum reqStatus {
-              
+		PENDING,OPENED,CLOSED,PUBLISHED
 	}
 
 	public enum applicationStatus{}

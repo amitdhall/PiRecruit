@@ -5,6 +5,7 @@ import in.bluepi.pirecruit.user.employee.Employee;
 import in.bluepi.pirecruit.util.UtilEnum;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -12,17 +13,26 @@ import java.util.Set;
  * @created 21-Nov-2012 12:35:06 PM
  */
 public class Requisition {
+	
+	int ID;
+	Date closingDate;
+	Date openingDate;
+	Employee createdByEmp;
+	String projectName;
+	UtilEnum.reqStatus reqStatus;
+	
+	public Set <VacancySet> vacancySet1 = new HashSet<VacancySet>();
+	
+	
 
-	private Date closingDate;
-	private Employee createdBy;
-	private Date openingDate;
-	private String projectName;
-	private UtilEnum.reqStatus reqStatus;
-	private String status;
-	private VacancySet m_VacancySet;
-
-	public Requisition(){
-
+	public Requisition(int ID, Date closingDate,Date openingDate, Employee createdByEmp,String projectName, UtilEnum.reqStatus reqStatus){
+//		vacancySet = new HashSet<VacancySet>();
+		this.ID = ID;
+		this.closingDate = closingDate;
+		this.createdByEmp = createdByEmp;
+		this.openingDate = openingDate;
+		this.projectName = projectName;
+		this.reqStatus = reqStatus;
 	}
 
 	public void finalize() throws Throwable {
@@ -44,15 +54,25 @@ public class Requisition {
 	public boolean applyForJob(Candidate Candidate,VacancySet VacancySet){
 		return false;
 	}
-
 	/**
 	 * 
-	 * @param Application
-	 * @param applicationStatus
+	 * @param Candidate
+	 * @param VacancySet
 	 */
-	public void changeApplicationStatus(Application application, UtilEnum.applicationStatus applicationStatus){
-
+	public VacancySet createVacancySet(VacancySetDTO vacancySetDTO){
+		VacancySet vacancySet = new VacancySet(vacancySetDTO);
+		this.vacancySet1.add(vacancySet);
+		return vacancySet;
 	}
+
+//	/**
+//	 * 
+//	 * @param Application
+//	 * @param applicationStatus
+//	 */
+//	public void changeApplicationStatus(Application application, UtilEnum.applicationStatus applicationStatus){
+//
+//	}
 
 	/**
 	 * 
@@ -82,7 +102,7 @@ public class Requisition {
 	 * 
 	 * @param designation
 	 */
-	public void deleteVacancies(Designation designation){
+	public void deleteVacancies(){
 
 	}
 
@@ -136,5 +156,10 @@ public class Requisition {
 	 */
 	public Set<VacancySet> viewVacancies(Requisition Req){
 		return null;
+	}
+	@Override
+	public String toString() {
+		
+		return "Req "+ID;
 	}
 }//end Requisition

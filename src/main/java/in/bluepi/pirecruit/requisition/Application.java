@@ -23,7 +23,7 @@ public class Application {
 	 * 
 	 * @param designation
 	 */
-	public void apply(Designation designation){
+	public void apply(){
 
 	}
 
