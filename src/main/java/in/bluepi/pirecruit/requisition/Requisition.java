@@ -14,30 +14,36 @@ import java.util.Set;
  */
 public class Requisition {
 	
-	int ID;
+	int id;
 	Date closingDate;
 	Date openingDate;
 	Employee createdByEmp;
 	String projectName;
 	UtilEnum.reqStatus reqStatus;
-	
+
+	//TODO : why is this thing called vacancySet?
 	public Set <VacancySet> vacancySet1 = new HashSet<VacancySet>();
 	
 	
-
-	public Requisition(int ID, Date closingDate,Date openingDate, Employee createdByEmp,String projectName, UtilEnum.reqStatus reqStatus){
+    //TODO : Is this the constructor that would be used always? Hibernate would require a default constructor.
+	public Requisition(int id, Date closingDate,Date openingDate, Employee createdByEmp,String projectName, UtilEnum.reqStatus reqStatus){
 //		vacancySet = new HashSet<VacancySet>();
-		this.ID = ID;
+		this.id = id;
 		this.closingDate = closingDate;
 		this.createdByEmp = createdByEmp;
 		this.openingDate = openingDate;
 		this.projectName = projectName;
 		this.reqStatus = reqStatus;
 	}
-
+    //TODO Remove finalize from all the classes.
 	public void finalize() throws Throwable {
 
 	}
+    //TODO: Description or discription? What is description? Give it a proper name?
+    //TODO: What does the below method do? adds a description template to a requisition?
+    //TODO: If this is initiatlization of the requisition from the template should this not be rewritten as a chained
+    //TODO: constructor?
+
 	/**
 	 * 
 	 * @param discription
@@ -45,6 +51,11 @@ public class Requisition {
 	public void addDiscriptionTemplate(Description discription){
 
 	}
+
+
+    //TODO: These method names are very confusing? Does the requistion apply for a job? WHy do we have a method called
+    //applyForJob in the Requisition class? Should this be instead called - processApplication?
+
 
 	/**
 	 * 
@@ -54,11 +65,13 @@ public class Requisition {
 	public boolean applyForJob(Candidate Candidate,VacancySet VacancySet){
 		return false;
 	}
+
+
 	/**
-	 * 
-	 * @param Candidate
-	 * @param VacancySet
-	 */
+     * TODO: Correct the javadocs
+     * I like the flow here :-)   HM.openRequisition -->req.createVacancySet
+     *
+     */
 	public VacancySet createVacancySet(VacancySetDTO vacancySetDTO){
 		VacancySet vacancySet = new VacancySet(vacancySetDTO);
 		this.vacancySet1.add(vacancySet);
@@ -160,6 +173,6 @@ public class Requisition {
 	@Override
 	public String toString() {
 		
-		return "Req "+ID;
+		return "Req "+ id;
 	}
 }//end Requisition

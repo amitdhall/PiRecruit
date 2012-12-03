@@ -13,7 +13,7 @@ public class RequisitionRepository {
 //	int i=1;
 	public Requisition createReq(int ID, Date closingDate, Date openingDate, Employee createdByEmp, String projectName, UtilEnum.reqStatus reqStatus){
 		Requisition req = new Requisition(ID,closingDate,openingDate,createdByEmp,projectName,reqStatus);
-		requisitions.put(req.ID, req);
+		requisitions.put(req.id, req);
 //		i++;
 		return req;
 	}
