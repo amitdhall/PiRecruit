@@ -1,11 +1,11 @@
 package in.bluepi.pirecruit.user.employee;
 
+import in.bluepi.pirecruit.requisition.Application;
 import in.bluepi.pirecruit.requisition.Requisition;
 import in.bluepi.pirecruit.requisition.RequisitionRepository;
 import in.bluepi.pirecruit.requisition.VacancySet;
 import in.bluepi.pirecruit.requisition.VacancySetDTO;
 import in.bluepi.pirecruit.util.UtilEnum;
-import in.bluepi.pirecruit.util.UtilEnum.reqStatus;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -17,10 +17,10 @@ import java.util.Set;
  * @created 21-Nov-2012 12:36:13 PM
  */
 public class HM extends Employee {
-	
-//	Requisition req[] = new Requisition[5];
-     Requisition req=null;
-     Set<Requisition> reqSet=new HashSet<Requisition>();
+
+	//	Requisition req[] = new Requisition[5];
+	Requisition req=null;
+	Set<Requisition> reqSet=new HashSet<Requisition>();
 
 	public HM(){
 		wrap();
@@ -31,14 +31,11 @@ public class HM extends Employee {
 		Employee emp = new Employee();
 		Date closingDate = new Date("31/01/2013");
 		Date openingDate = new Date("01/01/2013");
-		
-//		for(int i=0;i<1;i++)
+
+		//		for(int i=0;i<1;i++)
 		req=reqRepo.createReq(1, closingDate,openingDate,emp,"PWC",UtilEnum.reqStatus.PENDING);
 	}
 
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
 	/**
 	 * 
 	 * @param vacancySet
@@ -47,7 +44,7 @@ public class HM extends Employee {
 	public void assignInterviewer(VacancySet vacancySet, Interviewer interviewer){
 
 	}
-	
+
 
 	/**
 	 * 
@@ -67,8 +64,19 @@ public class HM extends Employee {
 		vacancySetDTO.setMaxSal("8LPA");
 		vacancySetDTO.setMinSal("5LPA");
 		vacancySetDTO.setNoOfVacancy(3);
-		vacancySetDTO.setOtherDetails("Candidate is reponsible for everything :-p ");
-		 req.createVacancySet(vacancySetDTO);
+		vacancySetDTO.setOtherDetails("Candidate is reponsible for developing & maintaing the application.");
+		req.createVacancySet(vacancySetDTO);
+	}
+	public void changeApplicationStatus(){
+		for(VacancySet vacancySet:req.setOfVacancySet){
+			Set<Application> applicationSet = req.viewApplications(vacancySet);
+			for(Application application : applicationSet){
+//				condition
+				if(false){
+					req.changeApplicationStatus(application, UtilEnum.applicationStatus.SELECTED);
+				}
+			}
+		}
 	}
 	public void showJobTempelate(){
 
@@ -76,8 +84,8 @@ public class HM extends Employee {
 	public static void main(String[] args) {
 		HM hm = new HM();
 		hm.openRequisition();
-//		System.out.println("req "+hm.req);
-//		System.out.println("hi"+hm.Req);
+		//		System.out.println("req "+hm.req);
+		//		System.out.println("hi"+hm.Req);
 		System.out.println(hm.req);
 	}
 }//end HM

@@ -11,7 +11,9 @@ public class UtilEnum {
 		PENDING,OPENED,CLOSED,PUBLISHED
 	}
 
-	public enum applicationStatus{}
+	public enum applicationStatus{
+		APPLIED,SCREENED,SHORTLISTED,SELECTED,OFFERED,REJECTED,OFFER_DENIED
+	}
 
 
 	public UtilEnum(){

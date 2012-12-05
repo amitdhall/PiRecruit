@@ -7,13 +7,13 @@ import java.util.Set;
  * @version 1.0
  * @created 21-Nov-2012 12:35:06 PM
  */
-public class Description {
+public class JobDescription {
 
 	private String description;
 	private Set<String> keySkill;
 	private String otherDetails;
 
-	public Description(VacancySetDTO vacancySetDTO){
+	public JobDescription(VacancySetDTO vacancySetDTO){
 		this.description = vacancySetDTO.getDescription();
 		this.keySkill = vacancySetDTO.getKeySkill();
 		this.otherDetails = vacancySetDTO.getOtherDetails();

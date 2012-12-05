@@ -22,11 +22,15 @@ public class Requisition {
 	UtilEnum.reqStatus reqStatus;
 
 	//TODO : why is this thing called vacancySet?
-	public Set <VacancySet> vacancySet1 = new HashSet<VacancySet>();
+//	the name is now changed to setOfVacancySet. So as user can get the meaning by reading name.
+	public Set <VacancySet> setOfVacancySet = new HashSet<VacancySet>();
 	
-	
+	public void Requisition(){
+		
+	}
     //TODO : Is this the constructor that would be used always? Hibernate would require a default constructor.
-	public Requisition(int id, Date closingDate,Date openingDate, Employee createdByEmp,String projectName, UtilEnum.reqStatus reqStatus){
+//	Above we now have a default constructor and below thr is a method for intializing the values.   
+	public void initReq(int id, Date closingDate,Date openingDate, Employee createdByEmp,String projectName, UtilEnum.reqStatus reqStatus){
 //		vacancySet = new HashSet<VacancySet>();
 		this.id = id;
 		this.closingDate = closingDate;
@@ -35,26 +39,29 @@ public class Requisition {
 		this.projectName = projectName;
 		this.reqStatus = reqStatus;
 	}
-    //TODO Remove finalize from all the classes.
-	public void finalize() throws Throwable {
-
-	}
+    
     //TODO: Description or discription? What is description? Give it a proper name?
+//	It is now called as JobDescription.
     //TODO: What does the below method do? adds a description template to a requisition?
+//	It will save the job templates. It will be done soon
     //TODO: If this is initiatlization of the requisition from the template should this not be rewritten as a chained
+//	please elaborate the above said.
     //TODO: constructor?
 
 	/**
 	 * 
-	 * @param discription
+	 * @param description
 	 */
-	public void addDiscriptionTemplate(Description discription){
+	public void addDescriptionTemplate(JobDescription description){
 
 	}
 
 
     //TODO: These method names are very confusing? Does the requistion apply for a job? WHy do we have a method called
     //applyForJob in the Requisition class? Should this be instead called - processApplication?
+	
+//	Sir I think apply for job should be there in the Candidate.
+//	and processApplication should be here in Requisition so that for a particular requisition we can find out the applications came in.
 
 
 	/**
@@ -74,18 +81,18 @@ public class Requisition {
      */
 	public VacancySet createVacancySet(VacancySetDTO vacancySetDTO){
 		VacancySet vacancySet = new VacancySet(vacancySetDTO);
-		this.vacancySet1.add(vacancySet);
+		this.setOfVacancySet.add(vacancySet);
 		return vacancySet;
 	}
 
-//	/**
-//	 * 
-//	 * @param Application
-//	 * @param applicationStatus
-//	 */
-//	public void changeApplicationStatus(Application application, UtilEnum.applicationStatus applicationStatus){
-//
-//	}
+	/**
+	 * 
+	 * @param Application
+	 * @param applicationStatus
+	 */
+	public void changeApplicationStatus(Application application, UtilEnum.applicationStatus applicationStatus){
+
+	}
 
 	/**
 	 * 
@@ -107,7 +114,7 @@ public class Requisition {
 	 * 
 	 * @param description
 	 */
-	public void deleteDescriptionTemplate(Description description){
+	public void deleteDescriptionTemplate(JobDescription description){
 
 	}
 
@@ -123,7 +130,7 @@ public class Requisition {
 	 * 
 	 * @param description
 	 */
-	public void editDescriptionTemplate(Description description){
+	public void editDescriptionTemplate(JobDescription description){
 
 	}
 
