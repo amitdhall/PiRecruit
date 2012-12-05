@@ -1,5 +1,10 @@
 package in.bluepi.pirecruit;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import in.bluepi.pirecruit.requisition.VacancySetDTO;
+import in.bluepi.pirecruit.user.employee.HM;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -35,4 +40,25 @@ public class AppTest
     {
         assertTrue( true );
     }
+    	
+   public void testHM(){
+    	VacancySetDTO vacancySetDTO = new VacancySetDTO();
+		vacancySetDTO.setDesignation("Java Developer");
+		vacancySetDTO.setDescription("you shud knw java");
+		Set<String> skillSet = new HashSet<String>();
+		skillSet.add("Core Java");
+		skillSet.add("Spring");
+		vacancySetDTO.setKeySkill(skillSet);
+		vacancySetDTO.setLocation("Gurgaon");
+		vacancySetDTO.setMaxExp(5);
+		vacancySetDTO.setMinExp(3);
+		vacancySetDTO.setMaxSal("8LPA");
+		vacancySetDTO.setMinSal("5LPA");
+		vacancySetDTO.setNoOfVacancy(3);
+		vacancySetDTO.setOtherDetails("Candidate is reponsible for developing & maintaing the application.");
+		HM hm = new HM();
+		hm.openRequisition(vacancySetDTO);
+//		hm.changeApplicationStatus();
+//		hm.setApplicationPriority();
+	}
 }

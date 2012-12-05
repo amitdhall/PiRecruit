@@ -16,7 +16,7 @@ public class VacancySet {
 	private int noOfVacancy;
 	private Vacancy m_Vacancy;
 //	private Designation m_Designation;
-	private JobDescription vacancyDescription;
+	private JobDescription jobDescription;
 
 	public VacancySet(){
 
@@ -30,10 +30,7 @@ public class VacancySet {
 		this.minSal=vacancySetDTO.getMinSal();
 		this.maxSal=vacancySetDTO.getMaxSal();
 		this.noOfVacancy=vacancySetDTO.getNoOfVacancy();
-		vacancyDescription = new JobDescription(vacancySetDTO);
+		jobDescription = new JobDescription(vacancySetDTO);
 	}
 
-	public void finalize() throws Throwable {
-
-	}
 }//end VacancySet
