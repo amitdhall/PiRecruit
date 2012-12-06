@@ -5,7 +5,14 @@
     <classes>
       <class name="in.bluepi.pirecruit.user.employee.HiringManagerTest">
         <methods>
+          <include name="saveAsJobTemplate"/>
           <include name="HiringManager"/>
+          <include name="showJobDescriptionsSavedAsTemplate"/>
+          <include name="assignInterviewer"/>
+          <include name="main"/>
+          <include name="changeApplicationStatus"/>
+          <include name="setApplicationPriority"/>
+          <include name="showJobTemplate"/>
         </methods>
       </class> <!-- in.bluepi.pirecruit.user.employee.HiringManagerTest -->
     </classes>

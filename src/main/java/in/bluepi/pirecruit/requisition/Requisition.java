@@ -1,6 +1,7 @@
 package in.bluepi.pirecruit.requisition;
 
 import in.bluepi.pirecruit.enums.ApplicationStatus;
+import in.bluepi.pirecruit.enums.RequisitionStatus;
 import in.bluepi.pirecruit.enums.UtilEnum;
 import in.bluepi.pirecruit.repository.requisition.VacancySetRepositiory;
 import in.bluepi.pirecruit.user.candidate.Candidate;
@@ -10,18 +11,20 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.joda.time.DateTime;
+
 /**
  * @version 1.0
  * @created 21-Nov-2012 12:35:06 PM
  */
 public class Requisition {
 
-	int id;
-	Date closingDate;
-	Date openingDate;
+	int requisitionID;
+	DateTime closingDate;
+	DateTime openingDate;
 	Employee createdByEmp;
 	String projectName;
-	UtilEnum.reqStatus reqStatus;
+	RequisitionStatus reqStatus;
 
 	//TODO : why is this thing called vacancySet?
 	//	the name is now changed to setOfVacancySet. So as user can get the meaning by reading name.
@@ -32,9 +35,9 @@ public class Requisition {
 	}
 	//TODO : Is this the constructor that would be used always? Hibernate would require a default constructor.
 	//	Above we now have a default constructor and below thr is a method for intializing the values.   
-	public void initReq(int id, Date closingDate,Date openingDate, Employee createdByEmp,String projectName, UtilEnum.reqStatus reqStatus){
+	public void initReq(int requisitionID, DateTime closingDate,DateTime openingDate, Employee createdByEmp,String projectName, RequisitionStatus reqStatus){
 		//		vacancySet = new HashSet<VacancySet>();
-		this.id = id;
+		this.requisitionID = requisitionID;
 		this.closingDate = closingDate;
 		this.createdByEmp = createdByEmp;
 		this.openingDate = openingDate;

@@ -7,18 +7,18 @@ package in.bluepi.pirecruit.enums;
  */
 public class UtilEnum {
 
-	public enum reqStatus {
-		PENDING,OPENED,CLOSED,PUBLISHED
-	}
-
-	public enum applicationStatus{}
-
-
-	public UtilEnum(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+//	public enum reqStatus {
+//		PENDING,OPENED,CLOSED,PUBLISHED
+//	}
+//
+//	public enum applicationStatus{}
+//
+//
+//	public UtilEnum(){
+//
+//	}
+//
+//	public void finalize() throws Throwable {
+//
+//	}
 }//end UtilEnum
