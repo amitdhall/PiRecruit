@@ -19,18 +19,19 @@ import java.util.Set;
  * @version 1.0
  * @created 21-Nov-2012 12:36:13 PM
  */
-public class HM extends Employee {
+public class HiringManager extends Employee {
 
 	//	Requisition req[] = new Requisition[5];
-	Requisition req=null;
-	Set<Requisition> reqSet=new HashSet<Requisition>();
+	Requisition req;
+	Set<Requisition> reqSet = new HashSet<Requisition>();
+	RequisitionRepository reqRepo = new RequisitionRepository();
 
-	public HM(){
+	public HiringManager(){
 		wrap();
 	}
 
 	private void wrap() {
-		RequisitionRepository reqRepo = new RequisitionRepository();
+		
 		Employee emp = new Employee();
 		Date closingDate = new Date("31/01/2013");
 		Date openingDate = new Date("01/01/2013");
@@ -102,16 +103,17 @@ public class HM extends Employee {
 	VacancySetDTO showJobDescriptionsSavedAsTemplate(){
 		Set<JobDescription> jobDescriptions = req.showJobDescriptionsFromTemplate();
 		Iterator<JobDescription> itr = jobDescriptions.iterator();
+		JobDescription jobDescription = null;
 		while(itr.hasNext())
 		{
 			//			selected will be added to VacancySetDTO
 			if(true){
-				JobDescription jobDescription = itr.next();
+				jobDescription = itr.next();
 				break;
 			}
 		}
 		VacancySetDTO vacancySetDTO = new VacancySetDTO();
-//			Object2ObjectConversion.JobDescription2VacancySetDTO();
+			Object2ObjectConversion.JobDescription2VacancySetDTO(vacancySetDTO,jobDescription);
 		
 		return vacancySetDTO;
 	}
@@ -135,12 +137,9 @@ public class HM extends Employee {
 		vacancySetDTO.setNoOfVacancy(3);
 		vacancySetDTO.setOtherDetails("Candidate is reponsible for developing & maintaing the application.");
 
-		HM hm = new HM();
-		hm.openRequisition(vacancySetDTO);
-		hm.changeApplicationStatus();
-		hm.setApplicationPriority();
-		//		System.out.println("req "+hm.req);
-		//		System.out.println("hi"+hm.Req);
-		System.out.println(hm.req);
+		HiringManager hiringManager = new HiringManager();
+		hiringManager.openRequisition(vacancySetDTO);
+		hiringManager.changeApplicationStatus();
+		hiringManager.setApplicationPriority();
 	}
 }//end HM

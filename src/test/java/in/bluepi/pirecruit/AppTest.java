@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import in.bluepi.pirecruit.requisition.VacancySetDTO;
-import in.bluepi.pirecruit.user.employee.HM;
+import in.bluepi.pirecruit.user.employee.HiringManager;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -56,8 +56,8 @@ public class AppTest
 		vacancySetDTO.setMinSal("5LPA");
 		vacancySetDTO.setNoOfVacancy(3);
 		vacancySetDTO.setOtherDetails("Candidate is reponsible for developing & maintaing the application.");
-		HM hm = new HM();
-		hm.openRequisition(vacancySetDTO);
+//		HM hm = new HM();
+//		hm.openRequisition(vacancySetDTO);
 //		hm.changeApplicationStatus();
 //		hm.setApplicationPriority();
 	}

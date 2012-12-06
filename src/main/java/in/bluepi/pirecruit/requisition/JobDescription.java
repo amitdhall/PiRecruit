@@ -19,7 +19,4 @@ public class JobDescription {
 		this.otherDetails = vacancySetDTO.getOtherDetails();
 	}
 
-	public void finalize() throws Throwable {
-
-	}
 }//end Description

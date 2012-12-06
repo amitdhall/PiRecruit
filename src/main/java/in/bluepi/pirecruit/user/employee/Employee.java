@@ -17,8 +17,9 @@ public class Employee {
 	public Employee(){
 
 	}
-
-	public void finalize() throws Throwable {
-
+	public Employee(String branch, String department, String designation, String emailId, String employeeId)
+	{
+		
 	}
+
 }//end Employee
