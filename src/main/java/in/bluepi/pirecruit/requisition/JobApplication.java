@@ -7,12 +7,12 @@ import in.bluepi.pirecruit.user.candidate.Candidate;
  * @version 1.0
  * @created 21-Nov-2012 12:35:06 PM
  */
-public class Application {
+public class JobApplication {
 
 	private String applicationStatus;
 	private int priority = 0;
 
-	public Application(){
+	public JobApplication(){
 
 	}
 

@@ -1,14 +1,14 @@
 package in.bluepi.pirecruit.user.employee;
 
-import in.bluepi.pirecruit.requisition.Application;
+import in.bluepi.pirecruit.enums.ApplicationStatus;
+import in.bluepi.pirecruit.enums.RequisitionStatus;
+import in.bluepi.pirecruit.requisition.JobApplication;
 import in.bluepi.pirecruit.requisition.JobDescription;
 import in.bluepi.pirecruit.requisition.Requisition;
 import in.bluepi.pirecruit.requisition.RequisitionRepository;
 import in.bluepi.pirecruit.requisition.VacancySet;
 import in.bluepi.pirecruit.requisition.VacancySetDTO;
 import in.bluepi.pirecruit.util.Object2ObjectConversion;
-import in.bluepi.pirecruit.util.UtilEnum;
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -21,24 +21,23 @@ import java.util.Set;
  */
 public class HiringManager extends Employee {
 
-	//	Requisition req[] = new Requisition[5];
 	Requisition req;
 	Set<Requisition> reqSet = new HashSet<Requisition>();
 	RequisitionRepository reqRepo = new RequisitionRepository();
 
 	public HiringManager(){
-		wrap();
+//		wrap();
 	}
 
-	private void wrap() {
-		
-		Employee emp = new Employee();
-		Date closingDate = new Date("31/01/2013");
-		Date openingDate = new Date("01/01/2013");
-
-		//		for(int i=0;i<1;i++)
-		req=reqRepo.createReq(1, closingDate,openingDate,emp,"PWC",UtilEnum.reqStatus.PENDING);
-	}
+//	private void wrap() {
+//		
+//		Employee emp = new Employee();
+//		Date closingDate = new Date("31/01/2013");
+//		Date openingDate = new Date("01/01/2013");
+//
+//		//		for(int i=0;i<1;i++)
+//		req=reqRepo.createReq(1, closingDate,openingDate,emp,"PWC",RequisitionStatus.PENDING);
+//	}
 
 	/**
 	 * 
@@ -73,11 +72,11 @@ public class HiringManager extends Employee {
 	}
 	public void changeApplicationStatus(){
 		for(VacancySet vacancySet:req.setOfVacancySet){
-			Set<Application> applicationSet = req.viewApplications(vacancySet);
-			for(Application application : applicationSet){
+			Set<JobApplication> applicationSet = req.viewApplications(vacancySet);
+			for(JobApplication application : applicationSet){
 				//				condition or by viewing the feedback of application he can make his/her decision
 				if(true){
-					req.changeApplicationStatus(application, UtilEnum.applicationStatus.SELECTED);
+					req.changeApplicationStatus(application, ApplicationStatus.SELECTED);
 				}
 			}
 		}
@@ -85,8 +84,8 @@ public class HiringManager extends Employee {
 
 	public void setApplicationPriority(){
 		for(VacancySet vacancySet:req.setOfVacancySet){
-			Set<Application> applicationSet = req.viewApplications(UtilEnum.applicationStatus.SHORTLISTED);
-			for(Application application : applicationSet){
+			Set<JobApplication> applicationSet = req.viewApplications(ApplicationStatus.SHORTLISTED);
+			for(JobApplication application : applicationSet){
 				//				some algo will be used to prioritize shortlisted cadidates. which will help the HM to visually do it.
 				//				like some clouring or pick n drop facility.
 				application.setPriority(0);

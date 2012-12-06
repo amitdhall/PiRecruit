@@ -1,7 +1,7 @@
 package in.bluepi.pirecruit.requisition;
 
+import in.bluepi.pirecruit.enums.UtilEnum;
 import in.bluepi.pirecruit.user.employee.Employee;
-import in.bluepi.pirecruit.util.UtilEnum;
 
 import java.util.Date;
 import java.util.HashMap;

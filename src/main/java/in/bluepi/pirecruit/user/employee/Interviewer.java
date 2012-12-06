@@ -1,7 +1,7 @@
 package in.bluepi.pirecruit.user.employee;
 
-import in.bluepi.pirecruit.requisition.Application;
 import in.bluepi.pirecruit.requisition.FeedBack;
+import in.bluepi.pirecruit.requisition.JobApplication;
 
 /**
  * @author Amin
@@ -22,7 +22,7 @@ public class Interviewer extends Employee {
 	 * @param application
 	 * @param feedBack
 	 */
-	public void submitInterviewFeedback(Application application, FeedBack feedBack){
+	public void submitInterviewFeedback(JobApplication application, FeedBack feedBack){
 
 	}
 }//end Interviewer

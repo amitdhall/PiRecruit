@@ -1,4 +1,4 @@
-package in.bluepi.pirecruit.util;
+package in.bluepi.pirecruit.enums;
 
 /**
  * @author Amin
@@ -11,9 +11,7 @@ public class UtilEnum {
 		PENDING,OPENED,CLOSED,PUBLISHED
 	}
 
-	public enum applicationStatus{
-		APPLIED,SCREENED,SHORTLISTED,SELECTED,OFFERED,REJECTED,OFFER_DENIED
-	}
+	public enum applicationStatus{}
 
 
 	public UtilEnum(){

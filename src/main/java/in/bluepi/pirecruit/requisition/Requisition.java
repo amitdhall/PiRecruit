@@ -1,8 +1,10 @@
 package in.bluepi.pirecruit.requisition;
 
+import in.bluepi.pirecruit.enums.ApplicationStatus;
+import in.bluepi.pirecruit.enums.UtilEnum;
+import in.bluepi.pirecruit.repository.requisition.VacancySetRepositiory;
 import in.bluepi.pirecruit.user.candidate.Candidate;
 import in.bluepi.pirecruit.user.employee.Employee;
-import in.bluepi.pirecruit.util.UtilEnum;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -103,7 +105,7 @@ public class Requisition {
 	 * @param Application
 	 * @param applicationStatus
 	 */
-	public void changeApplicationStatus(Application application, UtilEnum.applicationStatus applicationStatus){
+	public void changeApplicationStatus(JobApplication application, ApplicationStatus applicationStatus){
 
 	}
 
@@ -151,7 +153,10 @@ public class Requisition {
 	 * 
 	 * @param vacancySet
 	 */
-	public Set<Application> viewApplications(VacancySet vacancySet){
+	public Set<JobApplication> viewApplications(long vacancySetId,ApplicationStatus applicationStatus){
+		VacancySet vacancySet=new VacancySetRepositiory().getVacancySetById(vacancySetId);
+		Set<JobApplication> application=null;//getApplicationByVacancyId(vacancySet)
+		
 		return null;
 	}
 
@@ -159,7 +164,7 @@ public class Requisition {
 	 * 
 	 * @param applicationStatus
 	 */
-	public Set<Application> viewApplications(UtilEnum.applicationStatus applicationStatus){
+	public Set<JobApplication> viewApplications(ApplicationStatus applicationStatus){
 		return null;
 	}
 
@@ -167,7 +172,14 @@ public class Requisition {
 	 * 
 	 * @param Candidate
 	 */
-	public Set<Application> viewApplications(Candidate Candidate){
+	public Set<JobApplication> viewApplications(Candidate Candidate){
+		return null;
+	}
+	/**
+	 * 
+	 * @param vacancySet
+	 */
+	public Set<JobApplication> viewApplications(VacancySet vacancySet){
 		return null;
 	}
 
@@ -175,7 +187,7 @@ public class Requisition {
 	 * 
 	 * @param Application
 	 */
-	public UtilEnum.applicationStatus viewApplicationStatus(Application application){
+	public ApplicationStatus viewApplicationStatus(JobApplication jobApplication){
 		return null;
 	}
 
